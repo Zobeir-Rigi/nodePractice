@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Zobeir-Rigi/nodePractice/issues"
   },
-  "homepage": "https://github.com/Zobeir-Rigi/nodePractice#readme"
+  "homepage": "https://github.com/Zobeir-Rigi/nodePractice#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
 }
