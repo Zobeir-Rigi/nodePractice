@@ -5,6 +5,11 @@
 const express = require("express");
 const app = express();
 
+app.all("/secret", (req, res, next) => {
+  console.log("Accessing the secret section ...");
+  next(); // pass control to the next handler
+});
+
 app.post("/", (req, res) => {
   res.send("Got a POST request");
 });
@@ -13,9 +18,9 @@ app.use((req, res, next) => {
   console.log("first middleware");
   next();
 });
-app.use((req, res, next) => {
-  console.log("second middleware");
-  res.send("<h1>Hello world</h1>");
-});
+// app.use((req, res, next) => {
+//   console.log("second middleware");
+//   res.send("<h1>Hello world</h1>");
+// });
 
 app.listen(3000, () => console.log("hey! client"));
