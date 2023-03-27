@@ -4,7 +4,12 @@
 //  const http = require("http");
 const express = require("express");
 const app = express();
-
+app.get("/query", (req, res) => {
+  let valueOne = req.query.firstValue;
+  let valueTwo = req.query.secondValue;
+  console.log(typeof valueOne);
+  res.send(`Hi , let\'s check the query ${Number(valueOne) + Number (valueTwo)}  `);
+});
 app.all("/secret", (req, res, next) => {
   console.log("Accessing the secret section ...");
   next(); // pass control to the next handler
