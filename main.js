@@ -14,9 +14,9 @@ app.all("/secret", (req, res, next) => {
   console.log("Accessing the secret section ...");
   next(); // pass control to the next handler
 });
-app.get("/myprofile",(req, res){
+app.get("/myprofile",(req, res)=>{
   res.send("I will put my Profile page here")
-})
+});
 app.post("/", (req, res) => {
   res.send("Got a POST request");
 });
