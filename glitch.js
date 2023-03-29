@@ -11,7 +11,7 @@ const app = express();
 //(You can add more routes.)
 
 app.get("/", function (request, response) {
-  const myArr = ["apple", "Kiwi", `orange`];
+  const myArr = ["apple", "Kiwi", `orange`,`pineaple`];
   let currentDate = new Date();
 
   response.send(currentDate.toLocaleTimeString());
