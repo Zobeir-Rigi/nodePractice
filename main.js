@@ -24,6 +24,8 @@ app.get("/myprofile", (req, res) => {
 app.use("/form", (req, res) => {
   console.log(req.body);
   res.redirect("/");
+  const message = req.body.myName;
+  console.log(message)
 });
 
 app.use("/", (req, res) => {
