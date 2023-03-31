@@ -1,5 +1,8 @@
+const fs = require("fs") 
+
 const express = require("express");
 const bodyParser = require("body-parser");
+const { error } = require("console");
 
 const app = express();
 app.use(bodyParser.urlencoded({ exteded: false })); 
@@ -22,10 +25,15 @@ app.get("/myprofile", (req, res) => {
 // });
 
 app.use("/form", (req, res) => {
-  console.log(req.body);
-  res.redirect("/");
-  const message = req.body.myName;
-  console.log(message)
+  // console.log(req.body);
+  //   const message = req.body.myName;
+  //   console.log(message);
+  fs.writeFile(`./data/message.txt`,req.body.myName,err =>{
+    if (err) throw err ;
+      res.redirect("/");
+
+  })
+
 });
 
 app.use("/", (req, res) => {
