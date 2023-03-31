@@ -2,7 +2,6 @@ const fs = require("fs")
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const { error } = require("console");
 
 const app = express();
 app.use(bodyParser.urlencoded({ exteded: false })); 
@@ -36,7 +35,7 @@ app.use("/form", (req, res) => {
 
 });
 
-app.use("/", (req, res) => {
+app.get("/", (req, res) => {
   res.send(`<form action="/form" method="post"><label>Name</label><input type="text" name="myName"></input>
 <button>submit</button></form>`);
 });
