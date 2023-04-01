@@ -1,0 +1,14 @@
+### 
+get http://localhost:3001/
+
+###
+get http://localhost:3001/myprofile
+
+###
+post http://localhost:3001/
+Content-Type: application/json
+
+{
+ "from": "zobeir",
+ "text": "hello"
+}

@@ -1,11 +1,11 @@
-const fs = require("fs") 
+const fs = require("fs");
 
 const express = require("express");
 const bodyParser = require("body-parser");
-
+// client server extention
 const app = express();
-app.use(bodyParser.urlencoded({ exteded: false })); 
-
+// app.use(bodyParser.urlencoded({ exteded: false }));
+app.use(bodyParser.json());
 app.get("/query", (req, res) => {
   let valueOne = req.query.firstValue;
   let valueTwo = req.query.secondValue;
@@ -27,12 +27,10 @@ app.use("/form", (req, res) => {
   // console.log(req.body);
   //   const message = req.body.myName;
   //   console.log(message);
-  fs.writeFile(`./data/message.txt`,req.body.myName,err =>{
-    if (err) throw err ;
-      res.redirect("/");
-
-  })
-
+  fs.writeFile(`./data/message.txt`, req.body.myName, (err) => {
+    if (err) throw err;
+    res.redirect("/");
+  });
 });
 
 app.get("/", (req, res) => {
@@ -40,4 +38,10 @@ app.get("/", (req, res) => {
 <button>submit</button></form>`);
 });
 
-app.listen(3000, () => console.log("hey! client"));
+app.post("/", (req, res) => {
+  const { from, text } = req.body;
+
+  res.status(200).json(`Your message ${text} from ${from} was created`);
+});
+
+app.listen(3001, () => console.log("hey! client"));
