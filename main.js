@@ -23,7 +23,7 @@ app.get("/myprofile", (req, res) => {
 //   res.send("Got a POST request");
 // });
 
-app.use("/form", (req, res) => {
+app.post("/form", (req, res) => {
   // console.log(req.body);
   //   const message = req.body.myName;
   //   console.log(message);
